@@ -208,10 +208,10 @@
         ? l > 1
           ? fn.apply(ctx, arguments)
           : fn.call(ctx, a)
-        : fn.call(ctx)
+        : fn.call(ctx)  // call的性能要比apply好，所以优先使用call？
     }
 
-    boundFn._length = fn.length;
+    boundFn._length = fn.length; // fn.length 函数的入参个数
     return boundFn
   }
 
